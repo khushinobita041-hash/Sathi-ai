@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#090d1a">
+  <meta name="description" content="SATHI AI - Free personal AI assistant">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <title>SATHI AI</title>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark">✦</div><div><b>SATHI AI</b><small>Your AI companion</small></div></div>
+      <button class="new-chat" id="newChat">＋ নতুন চ্যাট</button>
+      <div class="side-label">RECENT CHATS</div>
+      <div id="chatList" class="chat-list"></div>
+      <div class="side-bottom">
+        <div class="model-chip"><span class="dot"></span><span id="modelStatus">AI প্রস্তুত নয়</span></div>
+        <button class="side-link" id="installBtn" hidden>⬇ অ্যাপ ইনস্টল</button>
+        <button class="side-link" id="clearAll">সব চ্যাট মুছুন</button>
+        <div class="tiny-note">Free local AI · আপনার চ্যাট এই ডিভাইসেই থাকে</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn mobile-only" id="menuBtn" aria-label="Menu">☰</button>
+        <div class="top-title"><span class="status-dot"></span> SATHI AI <span class="free-tag">FREE</span></div>
+        <button class="icon-btn" id="voiceToggle" title="Voice reply">🔊</button>
+      </header>
+
+      <section class="conversation" id="conversation">
+        <div class="welcome" id="welcome">
+          <div class="orb"><div class="orb-core">✦</div></div>
+          <p class="eyebrow">YOUR PERSONAL AI ASSISTANT</p>
+          <h1>হ্যালো! আমি <span>SATHI AI</span></h1>
+          <p class="welcome-copy">আমি কীভাবে আপনাকে সাহায্য করতে পারি?</p>
+          <div class="suggestions">
+            <button class="suggestion" data-prompt="বাংলায় কৃত্রিম বুদ্ধিমত্তা কী সহজভাবে বুঝিয়ে বলো।">✧ AI কীভাবে কাজ করে?</button>
+            <button class="suggestion" data-prompt="আমাকে একটি সহজ দৈনিক পড়াশোনার রুটিন তৈরি করে দাও।">▤ পড়াশোনার রুটিন</button>
+            <button class="suggestion" data-prompt="একটি সাধারণ HTML ওয়েবপেজের কোড লিখে দাও।">&lt;/&gt; কোড লিখতে সাহায্য</button>
+            <button class="suggestion" data-prompt="আজকের জন্য ৫টি ভালো অভ্যাসের পরামর্শ দাও।">✦ ভালো অভ্যাস</button>
+          </div>
+          <div class="model-info">প্রথমবার AI মডেল ডাউনলোড হতে সময় লাগতে পারে।</div>
+        </div>
+        <div class="messages" id="messages" aria-live="polite"></div>
+      </section>
+
+      <section class="composer-wrap">
+        <div class="load-row" id="loadRow">
+          <div class="load-text" id="loadText">AI মডেল প্রস্তুত করা হচ্ছে…</div>
+          <div class="progress"><div id="progressBar"></div></div>
+        </div>
+        <div class="composer">
+          <textarea id="prompt" rows="1" placeholder="SATHI AI-কে কিছু জিজ্ঞাসা করুন…" aria-label="Message"></textarea>
+          <div class="composer-actions">
+            <div class="left-actions">
+              <button class="tool-btn" id="micBtn" title="কথা বলুন">🎙️ <span>Voice</span></button>
+              <span class="privacy-label">🔒 Private on this device</span>
+            </div>
+            <button class="send-btn" id="sendBtn" title="Send">➤</button>
+          </div>
+        </div>
+        <p class="disclaimer">SATHI AI ভুল উত্তর দিতে পারে। গুরুত্বপূর্ণ তথ্য যাচাই করে নিন।</p>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
